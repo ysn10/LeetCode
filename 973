@@ -1,0 +1,14 @@
+class Solution:
+    def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
+        
+        l = len(points)
+        dist=[0]*l
+        for i in range (l):
+          dist[i]=[points[i][0]*points[i][0]+points[i][1]*points[i][1],i]
+        
+        s_dist=sorted(dist, key=lambda x: x[0])
+        ans=[0]*K
+        for j in range (K):
+          ans[j] = points[s_dist[j][1]]
+        return ans
+          
